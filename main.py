@@ -4,12 +4,12 @@ import pygame
 
 class Cube:
 
-    WIDTH = 600
-    LENGTH = 600
-    FPS = 60
-
     def __init__(self, d=-1):
-        pygame.display.set_mode((self.WIDTH, self.HEIGHT))
+        self.WIDTH = 600
+        self.LENGTH = 600
+        self.FPS = 60
+
+        pygame.display.set_mode((self.WIDTH, self.LENGTH))
         self.screen = pygame.display.get_surface()
         self.clock = pygame.time.Clock()
 
