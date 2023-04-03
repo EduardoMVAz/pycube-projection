@@ -65,34 +65,34 @@ class Cube:
                     rodando = False
                 
                 keys = pygame.key.get_pressed()
-                if keys[pygame.K_a]:
-                    angle_y += 1
-                if keys[pygame.K_d]:
-                    angle_y -= 1
-                if keys[pygame.K_w]:
-                    angle_x -= 1
-                if keys[pygame.K_s]:
-                    angle_x += 1
-                if keys[pygame.K_h]:
-                    angle_z += 1
-                if keys[pygame.K_t]:
-                    angle_z -= 1
-                if keys[pygame.K_f]:
-                    self.d -= 0.01
-                    self.projection_matrix = np.array([[1, 0, 0, 0],
-                                            [0, 1, 0, 0],
-                                            [0, 0, 0, -self.d],
-                                            [0, 0, -1/self.d, 0]])
-                if keys[pygame.K_r]:
-                    self.d = -1
-                    self.projection_matrix = np.array([[1, 0, 0, 0],
-                                            [0, 1, 0, 0],
-                                            [0, 0, 0, -self.d],
-                                            [0, 0, -1/self.d, 0]])
-                    cube_ = cube
-                    angle_x = 0
-                    angle_y = 0
-                    angle_z = 0
+            if keys[pygame.K_a]:
+                angle_y += 1
+            if keys[pygame.K_d]:
+                angle_y -= 1
+            if keys[pygame.K_w]:
+                angle_x -= 1
+            if keys[pygame.K_s]:
+                angle_x += 1
+            if keys[pygame.K_h]:
+                angle_z += 1
+            if keys[pygame.K_t]:
+                angle_z -= 1
+            if keys[pygame.K_f]:
+                self.d -= 0.01
+                self.projection_matrix = np.array([[1, 0, 0, 0],
+                                        [0, 1, 0, 0],
+                                        [0, 0, 0, -self.d],
+                                        [0, 0, -1/self.d, 0]])
+            if keys[pygame.K_r]:
+                self.d = -1
+                self.projection_matrix = np.array([[1, 0, 0, 0],
+                                        [0, 1, 0, 0],
+                                        [0, 0, 0, -self.d],
+                                        [0, 0, -1/self.d, 0]])
+                cube_ = cube
+                angle_x = 0
+                angle_y = 0
+                angle_z = 0
             
             self.clock.tick(self.FPS)
 
