@@ -58,24 +58,29 @@ class Cube:
         angle_y = 0
         angle_z = 0
         rodando = True
+        spin = False
         while rodando:
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     rodando = False
                 keys = pygame.key.get_pressed()
-                
-            if keys[pygame.K_a]:
+
+            if keys[pygame.K_q] and not spin:
+                    spin = True
+            if keys[pygame.K_t] and spin:
+                    spin = False
+            if keys[pygame.K_a] and not spin:
                 angle_y += 1
-            if keys[pygame.K_d]:
+            if keys[pygame.K_d] and not spin:
                 angle_y -= 1
-            if keys[pygame.K_w]:
+            if keys[pygame.K_w] and not spin:
                 angle_x -= 1
-            if keys[pygame.K_s]:
+            if keys[pygame.K_s] and not spin:
                 angle_x += 1
-            if keys[pygame.K_h]:
+            if keys[pygame.K_z] and not spin:
                 angle_z += 1
-            if keys[pygame.K_t]:
+            if keys[pygame.K_x] and not spin:
                 angle_z -= 1
             if keys[pygame.K_f]:
                 self.d -= 0.01
@@ -90,9 +95,15 @@ class Cube:
                                         [0, 0, 0, -self.d],
                                         [0, 0, -1/self.d, 0]])
                 cube_ = cube
+                spin = False
                 angle_x = 0
                 angle_y = 0
                 angle_z = 0
+
+            if spin:
+                angle_x += 1
+                angle_y += 1
+                angle_z += 1
             
             self.clock.tick(self.FPS)
 
