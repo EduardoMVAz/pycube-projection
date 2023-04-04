@@ -68,7 +68,7 @@ class Cube:
 
             if keys[pygame.K_q] and not spin:
                     spin = True
-            if keys[pygame.K_t] and spin:
+            if keys[pygame.K_t] and spin:   
                     spin = False
             if keys[pygame.K_a] and not spin:
                 angle_y += 1
