@@ -10,6 +10,10 @@ This repository is a Linear Algebra based project with which we learned to trans
 
 ---
 
+![caso o GIF não funciona, o vídeo mp4 se encontra na raiz do repositório](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTU1NGY0MzgwMjI3NWRiNmFlNmI0NzUyZTFiNWVhYzI0ZTMzNDcwMSZjdD1n/Ek6m9HMFfEwYS0Cbua/giphy.gif)
+
+---
+
 ## Como Instalar
 
 Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python instalado em seu computador e seguir os passos:
