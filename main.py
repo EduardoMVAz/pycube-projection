@@ -63,8 +63,8 @@ class Cube:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     rodando = False
-                
                 keys = pygame.key.get_pressed()
+                
             if keys[pygame.K_a]:
                 angle_y += 1
             if keys[pygame.K_d]:
