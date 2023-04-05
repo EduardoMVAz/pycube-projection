@@ -81,17 +81,18 @@ class Cube:
                     rodando = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 4:
-                        self.d += 0.075
+                        self.d += 0.08
                         self.projection_matrix = np.array([[1, 0, 0, 0],
                                                             [0, 1, 0, 0],
-                                                            [0, 0, 0, self.d],
-                                                            [0, 0, 1/self.d, 0]])
+                                                            [0, 0, 0, -self.d],
+                                                            [0, 0, -1/self.d, 0]])
                     elif event.button == 5:
-                        self.d -= 0.075
+                        if self.d > 0.08:
+                            self.d -= 0.08
                         self.projection_matrix = np.array([[1, 0, 0, 0],
                                                             [0, 1, 0, 0],
-                                                            [0, 0, 0, self.d],
-                                                            [0, 0, 1/self.d, 0]])
+                                                            [0, 0, 0, -self.d],
+                                                            [0, 0, -1/self.d, 0]])
                         
             keys = pygame.key.get_pressed()
 
