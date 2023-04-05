@@ -108,7 +108,7 @@ class Cube:
             if keys[pygame.K_s] and not spin: # Tecla S rotação no eixo X negativa
                 angle_x -= 1
             if keys[pygame.K_w] and not spin: # Tecla W rotação no eixo X positiva
-                angle_x += 1q
+                angle_x += 1
             if keys[pygame.K_z] and not spin: # Tecla Z rotação no eixo Z negativa
                 angle_z -= 1
             if keys[pygame.K_x] and not spin: # Tecla X rotação no eixo Z positiva
