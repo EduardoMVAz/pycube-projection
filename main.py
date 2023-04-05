@@ -4,7 +4,7 @@ import pygame
 
 class Cube:
 
-    def __init__(self, d=-1):
+    def __init__(self, d=1):
         # Variáveis iniciais
         self.WIDTH = 600
         self.LENGTH = 600
@@ -100,14 +100,22 @@ class Cube:
             if keys[pygame.K_x] and not spin: # Tecla X rotação no eixo Z negativa
                 angle_z -= 1
             if keys[pygame.K_f]: # Tecla F aumenta a distância focal
-                self.d -= 0.01 # Como a distância é multiplicada sempre por -1 na matriz de projeção, o valor de d deve ser negativo
+                self.d += 0.01
+                self.projection_matrix = np.array([[1, 0, 0, 0],
+                                        [0, 1, 0, 0],
+                                        [0, 0, 0, -self.d],
+                                        [0, 0, -1/self.d, 0]])
+            if keys[pygame.K_g]: # Tecla G diminui a distância focal
+                self.d -= 0.01
+                if self.d <= 0:
+                    self.d += 0.01
                 self.projection_matrix = np.array([[1, 0, 0, 0],
                                         [0, 1, 0, 0],
                                         [0, 0, 0, -self.d],
                                         [0, 0, -1/self.d, 0]])
                 
             if keys[pygame.K_r]: # Tecla R reseta a rotação do cubo
-                self.d = -1
+                self.d = 1
                 self.projection_matrix = np.array([[1, 0, 0, 0],
                                         [0, 1, 0, 0],
                                         [0, 0, 0, -self.d],
