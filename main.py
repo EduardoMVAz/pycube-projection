@@ -79,7 +79,21 @@ class Cube:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     rodando = False
-                keys = pygame.key.get_pressed()
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 4:
+                        self.d += 0.075
+                        self.projection_matrix = np.array([[1, 0, 0, 0],
+                                                            [0, 1, 0, 0],
+                                                            [0, 0, 0, self.d],
+                                                            [0, 0, 1/self.d, 0]])
+                    elif event.button == 5:
+                        self.d -= 0.075
+                        self.projection_matrix = np.array([[1, 0, 0, 0],
+                                                            [0, 1, 0, 0],
+                                                            [0, 0, 0, self.d],
+                                                            [0, 0, 1/self.d, 0]])
+                        
+            keys = pygame.key.get_pressed()
 
             # Controle do cubo
             # Rotação manual só funciona se a rotação automática (spin: bool) estiver desligada
@@ -87,33 +101,18 @@ class Cube:
                 spin = True
             if keys[pygame.K_t] and spin: # Tecla T termina a rotação automatica
                 spin = False
-            if keys[pygame.K_a] and not spin: # Tecla A rotação no eixo Y positiva
-                angle_y += 1
-            if keys[pygame.K_d] and not spin: # Tecla D rotação no eixo Y negativa
+            if keys[pygame.K_a] and not spin: # Tecla A rotação no eixo Y negativa
                 angle_y -= 1
-            if keys[pygame.K_w] and not spin: # Tecla W rotação no eixo X positiva
-                angle_x -= 1
+            if keys[pygame.K_d] and not spin: # Tecla D rotação no eixo Y positiva
+                angle_y += 1
             if keys[pygame.K_s] and not spin: # Tecla S rotação no eixo X negativa
-                angle_x += 1
-            if keys[pygame.K_z] and not spin: # Tecla Z rotação no eixo Z positiva
-                angle_z += 1
-            if keys[pygame.K_x] and not spin: # Tecla X rotação no eixo Z negativa
+                angle_x -= 1
+            if keys[pygame.K_w] and not spin: # Tecla W rotação no eixo X positiva
+                angle_x += 1q
+            if keys[pygame.K_z] and not spin: # Tecla Z rotação no eixo Z negativa
                 angle_z -= 1
-            if keys[pygame.K_f]: # Tecla F aumenta a distância focal
-                self.d += 0.01
-                self.projection_matrix = np.array([[1, 0, 0, 0],
-                                        [0, 1, 0, 0],
-                                        [0, 0, 0, -self.d],
-                                        [0, 0, -1/self.d, 0]])
-            if keys[pygame.K_g]: # Tecla G diminui a distância focal
-                self.d -= 0.01
-                if self.d <= 0:
-                    self.d += 0.01
-                self.projection_matrix = np.array([[1, 0, 0, 0],
-                                        [0, 1, 0, 0],
-                                        [0, 0, 0, -self.d],
-                                        [0, 0, -1/self.d, 0]])
-                
+            if keys[pygame.K_x] and not spin: # Tecla X rotação no eixo Z positiva
+                angle_z += 1
             if keys[pygame.K_r]: # Tecla R reseta a rotação do cubo
                 self.d = 1
                 self.projection_matrix = np.array([[1, 0, 0, 0],
