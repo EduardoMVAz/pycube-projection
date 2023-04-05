@@ -69,40 +69,80 @@ Podemos realizar esse processo pois, realizando semelhanças entre os triângulo
 
 Ao formarmos triângulos retângulos conectando os pontos $(x_0, z_0)$ e $(x_p, z_p)$ a origem (usaremos pares $(x, z)$ como exemplo, o mesmo se aplica para $(y, z)$), formamos dois triângulos semelhantes, os quais podemos fazer a seguinte proporção entre seus catetos:
 
-$$
+$$  
 \frac{x_0}{z_0} = \frac{x_p}{z_p}
 $$
 
 Substituindo $z_p = -d$ e isolando $y_p$:
 
 $$
-\frac{x_0}{z_0} = -frac{x_p}{d}  
+\frac{x_0}{z_0} = -\frac{x_p}{d}  
+$$
 
-x_p = -frac{d * x_0}{z_0}
+$$
+x_p = -\frac{d * x_0}{z_0}
 $$
 
 No entanto, como queremos utilizar multiplicações matriciais aplicadas as coordenadas originais para realizar esses cálculos, utilizamos de um artifício: reescrever $x_0$ em função de $x_p$ e $w_p$, o último sendo um fator que agrupa $z_0$ e $d$ e poderá, então, ser representado na nossa matriz de transformação:
 
 $$
-x_0 = -frac{x_p * z_0}{d}
+x_0 = -\frac{x_p * z_0}{d}
+$$
 
+$$
 w_p = -\frac{z_0}{d}
+$$
 
+$$
 \therefore x_0 = x_p * w_p
 $$
 
 Assim, podemos representar a nossa transformação das coordenadas $(x_0, z_0)$ em $(x_p, z_p)$:
 
 $$
-
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 0 & -d \\
+0 & \frac{-1}{d} & 0
+\end{bmatrix}
+\begin{bmatrix}
+x_0 \\
+z_0 \\
+1
+\end{bmatrix} = 
+\begin{bmatrix}
+x_p * w_p \\
+z_p \\
+w_p
+\end{bmatrix}
 $$
 
 #### 1.2. Unindo $x$ e $y$
 
-Agora, realizando o mesmo processo para as coordeandas $x_p$ e $y_p$ separadamente, percebemos que o fator chave na transformação é o mesmo $w_p$. Portanto, podemos juntar as duas transformações e descrever com uma multiplicação matricial que gera todas as coordenadas de projeção:
+Agora, realizando o mesmo processo para as coordeandas $x_p$ e $y_p$ separadamente, percebemos que o fator chave na transformação é o mesmo $w_p$. Portanto, podemos juntar as duas transformações e descrever com uma multiplicação matricial que gera todas as coordenadas de projeção com a matriz &P&:
 
 $$
+P = \begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & -d \\
+0 & 0 & \frac{-1}{d} & 0
+\end{bmatrix}
+$$
 
+$$
+\begin{bmatrix}
+x_p * w_p \\
+y_p * w_p\\
+z_p \\
+w_p
+\end{bmatrix} = P
+\begin{bmatrix}
+x_0 \\
+y_0 \\
+z_0 \\
+1
+\end{bmatrix}
 $$
 
 Dessa maneira, a matriz de transformação no código é sempre calculada dessa maneira, de acordo com o valor de $d$ inputado no sistema.
@@ -114,7 +154,108 @@ Com a capacidade de montar as matrizes de projeção, precisamos imaginar a cons
 Primeiro, facilitando o processo, o cubo é inicialmente construído ao redor da origem $(0, 0, 0)$, com arestas de tamanho 1. A matriz das suas coordenadas precisa de 4 linhas: uma para as coordenadas $x$, uma para as $y$, uma para as $z$ e uma de apenas 1's (para fazer a matriz que depende da dimensão extra $w$):
 
 $$
-
+C = \begin{bmatrix}
+x_0 & x_1 & ... & x_n\\
+y_0 & y_1 & ... & y_n \\
+z_0 & z_1 & ... & z_n \\
+1 & 1 & ... & 1
+\end{bmatrix}
 $$
 
-to be continued
+Com essa matriz, podemos pré-multiplicá-la pela matriz de projeção $P$ para obter as coordenadas que serão mostradas pelo usuário.
+
+### 3. Rotação
+
+No entanto, antes de realizarmos a projeção de 3-d para 2-d, precisamos realizar as rotações no nosso sistema tridimensional. Para isso, geramos matrizes específicas para as rotações ao redor de cada eixo separadamente, $R_x$, $R_y$ e $R_z$:
+
+$$
+R_x = \begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & \cos(\theta) & -\sin(\theta) & 0 \\
+0 & \sin(\theta) & \cos(\theta) & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\hspace{0.5in}
+R_y = \begin{bmatrix}
+\cos(\theta) & 0 & \sin(\theta) & 0 \\
+0 & 1 & 0 & 0 \\
+-\sin(\theta) & 0 & \cos(\theta) & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\hspace{0.5in}
+R_z = \begin{bmatrix}
+\cos(\theta) & - \sin(\theta) & 0 & 0 \\
+\sin(\theta) & \cos(\theta) & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+Vale ressaltar que cada ângulo é incrementado em 1° por ciclo (na rotação automática). Além disso, apenas podemos realizar diretamente as rotações pois o cubo está centrado estratégicamente na origem, e as matrizes de transformação sempre ocorrem ao redor do $(0, 0, 0)$
+
+As aplicando na matriz de cubo $C$:
+
+$$
+C = R_z R_y R_x C
+$$
+
+Após essa ação, é preciso transladar a coordenada $z$, pois $z = 0$ é reservado para o pinhole, e não seria possível realizar a projeção. Foi arbitrariamente escolhido um incremento de 5 para todas os pontos.
+
+Agora, podemos realizar nossa projeção utilizando $P$:
+
+$$
+C_p = PC
+$$
+
+### 4. Construção das Coordenadas
+
+Com a matriz projetada $C_p$ em mãos, precisamos tomar cuidado: ainda não temos em mãos as coordenadas $(x_p, y_p)$, pois a nossa matriz possui apenas $x_p * w_p$ e $y_p * w_p$, como indicado abaixo:
+
+$$
+C_p = \begin{bmatrix}
+x^{0}_p * w^{0}_p & x^{1}_p * w^{1}_p & ... & x^{7}_p * w^{7}_p\\
+y^{0}_p * w^{0}_p & y^{1}_p * w^{1}_p & ... & y^{7}_p * w^{7}_p \\
+z_p & z_p & ... & z_p \\
+w^{0}_p & w^{1}_p & ... & w^{7}_p
+\end{bmatrix}
+$$
+
+Portanto, precisamos dividir todas as linhas da nossa matriz pela última linha, "normalizando-a" e obtendo as coordenadas $x$ e $y$.
+
+Agora, podemos extrair apenas o que nos interessa, os pares $(x, y)$ de interesse das duas primeiras linhas, e adicionar coordenadas homogêneas para realizarmos as translações necessárias nos próximos passos, obtendo uma matriz $8x3$ (8 vértices e 3 coordenadas para cada):
+
+$$
+C_p = \begin{bmatrix}
+x^{0}_p & x^{1}_p & ... & x^{7}_p \\
+y^{0}_p & y^{1}_p & ... & y^{7}_p \\
+1 & 1 & ... & 1
+\end{bmatrix}
+$$
+
+No entanto, o nosso cubo ainda é muito pequeno para ser observado na tela e está centrado na origem no sistema de coordenadas. Portanto, vamos aplicar uma matriz de expansão $E$ que multiplica as coordenadas por `400`, e uma matriz de translação $T$ que movimenta a matriz para o centro da tela ($W$ é a width da tela e $L$ o length):
+
+$$
+E = \begin{bmatrix}
+400 & 0 & 0\\
+0 & 400 & 0\\
+0 & 0 & 1
+\end{bmatrix},
+\hspace{0.5in}
+T = \begin{bmatrix}
+1 & 0 & (W/2)\\
+0 & 1 & (L/2)\\
+0 & 0 & 1
+\end{bmatrix}
+$$  
+
+$$
+C_p = T E C_p
+$$
+
+Por fim, para termos as coordenadas de cada ponto, podemos transpor a matriz, de modo que cada linha correspode às coordenadas de um vértice.
+
+*OBS: vale ressaltar que é realizada uma validação para evitar glitches. Ao alterar a distância focal* $d$, *é possível que algumas coordenadas acabem sendo negativas. Portanto, caso isso ocorra, o ponto não é desenhado na tela.*
+
+### 5. Variando a distância focal
+
+É importante realizar algumas observações sobre a distância focal
