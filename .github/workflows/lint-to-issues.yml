@@ -32,8 +32,10 @@ jobs:
       - name: Create GitHub Issues
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
+          export GITHUB_TOKEN=$GH_TOKEN
+          gh auth login --with-token < $GH_TOKEN
           cat pylint-report.json | jq -c '.[]' | while read issue; do
             file=$(echo $issue | jq -r '.path')
             line=$(echo $issue | jq -r '.line')
