@@ -30,6 +30,7 @@ jobs:
           pylint src/ --output-format=json > pylint-report.json || true
 
       - name: Create GitHub Issues
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -47,3 +48,5 @@ jobs:
               --body "$body" \
               --label "code quality" \
               || true
+          done
+
