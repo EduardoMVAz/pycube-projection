@@ -1,9 +1,9 @@
 name: Pylint to Issues
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   lint:
