@@ -1,21 +1,3 @@
-# Pycube Projection
-## Linear Algebra project with matrix manipulation and 3D to 2D transformations.
-
-Developers:
-
-* João Lucas de Moraes Barros Cadorniga [JoaoLucasMBC](https://github.com/JoaoLucasMBC)  
-* Eduardo Mendes Vaz [EduardoMVaz](https://github.com/EduardoMVAz)
-
-This repository is a Linear Algebra based project to perform projections of 3D objects and images to a 2D environment.
-
-The code contained here shows a 3D cube projected into 2D, using pygame as the engine, allowing the user to manipulate and rotate the cube in order to see the projection working.
-
----
-
-![caso o GIF não funcione, o vídeo mp4 se encontra na raiz do repositório](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTU1NGY0MzgwMjI3NWRiNmFlNmI0NzUyZTFiNWVhYzI0ZTMzNDcwMSZjdD1n/Ek6m9HMFfEwYS0Cbua/giphy.gif)
-
----
-
 ## Modelo Matemático
 
 O modelo matemático do `pycube-rotation` é baseado inteiramente em **projeções** utilizando multiplicações matriciais. Como um cubo possui 3 dimensões, precisamos "achatá-lo", ou seja, projetar todas as coordenadas $x$ e $y$ para um $z$ fixo. Dessa maneira, é possível representar o cubo 3-d como um desenho 2-d na tela (utilizando a biblioteca `pygame`).
