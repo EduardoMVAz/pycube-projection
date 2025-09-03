@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Pylint
         run: |
-          pylint your_package_name --output-format=json > pylint-report.json || true
+          pylint src/ --output-format=json > pylint-report.json || true
 
       - name: Create GitHub Issues
         env:
