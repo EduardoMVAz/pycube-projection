@@ -1,0 +1,49 @@
+name: Pylint to Issues
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dev dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          sudo apt-get update
+          sudo apt-get install -y jq gh
+
+      - name: Run Pylint
+        run: |
+          pylint src/ --output-format=json > pylint-report.json || true
+
+      - name: Create GitHub Issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat pylint-report.json | jq -c '.[]' | while read issue; do
+            file=$(echo $issue | jq -r '.path')
+            line=$(echo $issue | jq -r '.line')
+            msg=$(echo $issue | jq -r '.message')
+            rule=$(echo $issue | jq -r '.symbol')
+
+            title="Code Quality: $rule in $file:$line"
+            body="**Pylint reported an issue**\n\n- **File:** $file\n- **Line:** $line\n- **Rule:** $rule\n\n$msg"
+
+            gh issue create \
+              --title "$title" \
+              --body "$body" \
+              --label "code quality" \
+              || true
