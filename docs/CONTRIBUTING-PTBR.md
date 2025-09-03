@@ -75,7 +75,7 @@ funcionalidades
 
 ------------------------------------------------------------------------
 
-## 💬 Dúvidas ou Sugestões?
+## Dúvidas ou Sugestões?
 
 Se tiver dúvidas, você pode:
 - Abrir uma
