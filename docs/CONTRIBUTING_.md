@@ -1,6 +1,5 @@
 ---
-layout: default
-title: Documentation
+title: Contributing
 ---
 
 # Contributing to Pycube Projection
@@ -84,8 +83,14 @@ You can contribute by: - Adding new features
 
 If you have questions, feel free to:
 - Open an
-[Issue](https://github.com/%5BOWNER%5D/%5BPROJECT_NAME%5D/issues)
+[Issue](https://github.com/JoaoLucasMBC/pycube-projection/issues)
 - Start a
-[Discussion](https://github.com/%5BOWNER%5D/%5BPROJECT_NAME%5D/discussions)
+[Discussion](https://github.com/JoaoLucasMBC/pycube-projection/discussions)
 
 We're excited to build projection models together with you!
+
+## Other Pages
+
+- [Project Description](README.md)
+- [Usage and Installation](docs/README.md) (or [portuguese version](docs/README-PTBR.md))
+- [Mathematical Model](docs/MATHEMATICAL-MODEL.md) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.md))

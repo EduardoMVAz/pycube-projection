@@ -1,3 +1,7 @@
+---
+title: Project  Description
+---
+
 # Pycube Projection
 ## Linear Algebra project with matrix manipulation and 3D to 2D transformations.
 
@@ -17,5 +21,5 @@ The code contained here shows a 3D cube projected into 2D, using pygame as the e
 ## Documentation
 Documentation for this project can be found in:
 - [Usage and Installation](docs/README.md) (or [portuguese version](docs/README-PTBR.md))
-- [Contribuiting to the Project](docs/CONTRIBUTING.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))
-- [Mathematical Model](docs/MATHEMATICAL-MODEL.MD) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.MD))
+- [Contribuiting to the Project](docs/CONTRIBUTING_.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))
+- [Mathematical Model](docs/MATHEMATICAL-MODEL.md) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.md))

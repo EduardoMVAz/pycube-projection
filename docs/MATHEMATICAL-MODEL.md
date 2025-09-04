@@ -1,6 +1,5 @@
 ---
-layout: default
-title: Documentation
+title: Mathematical Model
 ---
 
 # Mathematical Model
@@ -227,3 +226,9 @@ It is important to make some remarks about the focal length and its role in the 
 The focal length represents the distance between the *pinhole* (origin) and our "screen", i.e., the fixed $z$ coordinate where we want to project our points. Therefore, it is absolute, always positive. For implementation purposes, we decided that all cube points are at positive $z$, and therefore must be projected onto a negative $z$.
 
 Thus, when calculating the projection matrix, we always set $z_p = -d$, which causes the negative sign to appear in the matrix calculations. Furthermore, to avoid *glitches*, a validation prevents the focal length from becoming negative, which would cause $z_p > 0$ and make it impossible for the projection to pass through the pinhole.
+
+## Other Pages
+
+- [Project Description](README.md)
+- [Usage and Installation](docs/README.md) (or [portuguese version](docs/README-PTBR.md))
+- [Contribuiting to the Project](docs/CONTRIBUTING_.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))

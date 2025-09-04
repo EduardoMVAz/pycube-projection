@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Documentation
 ---
 
@@ -70,3 +69,9 @@ it is important to keep in mind that, for example, if the user rotates
 the cube 180° on the x axis, the rotation on the y axis will have
 inverted controls. In other words, pay attention when combining
 rotations, as they change the directions the axes point to.*
+
+## Other Pages
+
+- [Project Description](README.md)
+- [Contribuiting to the Project](docs/CONTRIBUTING_.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))
+- [Mathematical Model](docs/MATHEMATICAL-MODEL.md) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.md))

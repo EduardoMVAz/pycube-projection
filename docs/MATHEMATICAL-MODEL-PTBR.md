@@ -1,6 +1,5 @@
 ---
-layout: default
-title: Documentation
+title: Modelo Matemático
 ---
 
 ## Modelo Matemático
@@ -227,3 +226,9 @@ Por fim, para termos as coordenadas de cada ponto, podemos transpor a matriz, de
 A distância focal representa a distância entre o *pinhole* (origem) e o nosso "anteparo", isto é, a coordenada $z$ fixa na qual queremos os nossos pontos projetados. Portanto, ela é absoluta, sempre positiva. Por decisão de implementação, decidimos que todos os pontos do cubo estarão em $z$ positivos, e, portanto, devem ser projetados em um $z$ negativo. 
 
 Dessa maneira, ao calcular a matriz de projeção, sempre calculamos $z_p = -d$, o que causa o sinal de negativo aparecer no cálculo das matrizes. Além disso, para evitar *glitches*, foi feita uma validação que impede que a distância focal se torne negativa, o que causaria que $z_p > 0$ e impediria a projeção passar pelo pinhole.
+
+## Outras Páginas
+
+- [Descrição do Projeto](README.md)
+- [Uso e Instalação](docs/README.md) (ou [versão em português](docs/README-PTBR.md))
+- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))
