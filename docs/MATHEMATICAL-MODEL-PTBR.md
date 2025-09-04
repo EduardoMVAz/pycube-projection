@@ -1,3 +1,7 @@
+---
+title: Modelo Matemático
+---
+
 ## Modelo Matemático
 
 O modelo matemático do `pycube-rotation` é baseado inteiramente em **projeções** utilizando multiplicações matriciais. Como um cubo possui 3 dimensões, precisamos "achatá-lo", ou seja, projetar todas as coordenadas $x$ e $y$ para um $z$ fixo. Dessa maneira, é possível representar o cubo 3-d como um desenho 2-d na tela (utilizando a biblioteca `pygame`).
@@ -222,3 +226,9 @@ Por fim, para termos as coordenadas de cada ponto, podemos transpor a matriz, de
 A distância focal representa a distância entre o *pinhole* (origem) e o nosso "anteparo", isto é, a coordenada $z$ fixa na qual queremos os nossos pontos projetados. Portanto, ela é absoluta, sempre positiva. Por decisão de implementação, decidimos que todos os pontos do cubo estarão em $z$ positivos, e, portanto, devem ser projetados em um $z$ negativo. 
 
 Dessa maneira, ao calcular a matriz de projeção, sempre calculamos $z_p = -d$, o que causa o sinal de negativo aparecer no cálculo das matrizes. Além disso, para evitar *glitches*, foi feita uma validação que impede que a distância focal se torne negativa, o que causaria que $z_p > 0$ e impediria a projeção passar pelo pinhole.
+
+## Outras Páginas
+
+- [Descrição do Projeto](README.md)
+- [Uso e Instalação](docs/README.md) (ou [versão em português](docs/README-PTBR.md))
+- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))

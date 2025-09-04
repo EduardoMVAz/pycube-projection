@@ -1,4 +1,8 @@
-## Como Instalar
+---
+title: Documentação
+---
+
+# Como Instalar
 
 Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python instalado em seu computador e seguir os passos:
 
@@ -40,7 +44,7 @@ Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python in
 
 ---
 
-## Como Manipular o Cubo
+# Como Manipular o Cubo
 
 A manipulação do cubo pode ser feita a partir de alguns comandos:
 * `Q` e `T` - Esses dois botões acionam o modo de rotação automática: o cubo gira ao redor de todos os seus eixos, indefinidamente (com incremento de 1 grau por loop). `Q` aciona o modo de rotação, e `T` o interrompe. Enquanto o cubo está em modo rotação, apenas o comando `Mouse Scroll` pode ser utilizado simultaneamente, portanto, para manipular o cubo manualmente, interrompa o modo de rotação.
@@ -48,3 +52,9 @@ A manipulação do cubo pode ser feita a partir de alguns comandos:
 * `Mouse Scroll` - O scroll do mouse altera a distância focal `d` do cubo, dando um "zoom in" ou "zoom out" nele. O scroll para cima aumenta d, "zoom in", e o scroll para baixo diminui d, "zoom out". (Um mouse externo e um scroll de notebook são invertidos)
 
 *OBS: como as teclas de rotação apenas incrementam o ângulo da matriz de rotação, vale ressaltar, que, por exemplo, caso o usuário rotacione em 180° o cubo no eixo x, a rotação no eixo y estará com os controles invertidos. Ou seja, é necessário prestar atenção ao combinar rotações, pois elas alteram a direção que os eixos apontam.*
+
+## Outras Páginas
+
+- [Descrição do Projeto](README.md)
+- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))
+- [Modelo Matemático](docs/MATHEMATICAL-MODEL.md) (ou [versão em português](docs/MATHEMATICAL-MODEL-PTBR.md))
