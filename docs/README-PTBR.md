@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Documentation
+title: Documentação
 ---
 
 # Como Instalar
@@ -53,3 +53,9 @@ A manipulação do cubo pode ser feita a partir de alguns comandos:
 * `Mouse Scroll` - O scroll do mouse altera a distância focal `d` do cubo, dando um "zoom in" ou "zoom out" nele. O scroll para cima aumenta d, "zoom in", e o scroll para baixo diminui d, "zoom out". (Um mouse externo e um scroll de notebook são invertidos)
 
 *OBS: como as teclas de rotação apenas incrementam o ângulo da matriz de rotação, vale ressaltar, que, por exemplo, caso o usuário rotacione em 180° o cubo no eixo x, a rotação no eixo y estará com os controles invertidos. Ou seja, é necessário prestar atenção ao combinar rotações, pois elas alteram a direção que os eixos apontam.*
+
+## Outras Páginas
+
+- [Descrição do Projeto](README.md)
+- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))
+- [Modelo Matemático](docs/MATHEMATICAL-MODEL.md) (ou [versão em português](docs/MATHEMATICAL-MODEL-PTBR.md))
