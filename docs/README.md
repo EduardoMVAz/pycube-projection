@@ -1,3 +1,8 @@
+---
+layout: default
+title: Documentation
+---
+
 # How to Install
 
 To use the *"Pycube Projection"* project, you must have Python installed
