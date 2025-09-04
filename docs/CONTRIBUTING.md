@@ -1,3 +1,8 @@
+---
+layout: default
+title: Documentation
+---
+
 # Contributing to Pycube Projection
 
 Thank you for considering contributing to our projection project.

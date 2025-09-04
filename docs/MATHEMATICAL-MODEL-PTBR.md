@@ -1,3 +1,8 @@
+---
+layout: default
+title: Documentation
+---
+
 ## Modelo Matemático
 
 O modelo matemático do `pycube-rotation` é baseado inteiramente em **projeções** utilizando multiplicações matriciais. Como um cubo possui 3 dimensões, precisamos "achatá-lo", ou seja, projetar todas as coordenadas $x$ e $y$ para um $z$ fixo. Dessa maneira, é possível representar o cubo 3-d como um desenho 2-d na tela (utilizando a biblioteca `pygame`).

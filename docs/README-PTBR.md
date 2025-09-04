@@ -1,4 +1,9 @@
-## Como Instalar
+---
+layout: default
+title: Documentation
+---
+
+# Como Instalar
 
 Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python instalado em seu computador e seguir os passos:
 
@@ -40,7 +45,7 @@ Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python in
 
 ---
 
-## Como Manipular o Cubo
+# Como Manipular o Cubo
 
 A manipulação do cubo pode ser feita a partir de alguns comandos:
 * `Q` e `T` - Esses dois botões acionam o modo de rotação automática: o cubo gira ao redor de todos os seus eixos, indefinidamente (com incremento de 1 grau por loop). `Q` aciona o modo de rotação, e `T` o interrompe. Enquanto o cubo está em modo rotação, apenas o comando `Mouse Scroll` pode ser utilizado simultaneamente, portanto, para manipular o cubo manualmente, interrompa o modo de rotação.

@@ -17,11 +17,15 @@
       <a href="{{ '/docs/' | relative_url }}">Docs</a>
     </nav>
   </header>
-  <main>
-    {{ content }}
+
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      {{ content }}
+    </div>
   </main>
+
   <footer>
-    <p>&copy; {{ site.title }} Documentation</p>
+    <p>&copy; {{ site.title }} — Built with Jekyll + MathJax</p>
   </footer>
 </body>
 </html>
