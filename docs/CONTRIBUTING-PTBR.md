@@ -91,6 +91,6 @@ Estamos animados em construir modelos de projeção com você!
 
 ## Outras Páginas
 
-- [Descrição do Projeto](README.md)
-- [Uso e Instalação](docs/README.md) (ou [versão em português](docs/README-PTBR.md))
-- [Modelo Matemático](docs/MATHEMATICAL-MODEL.md) (ou [versão em português](docs/MATHEMATICAL-MODEL-PTBR.md))
+- [Descrição do Projeto](../README.md)
+- [Uso e Instalação](README.md) (ou [versão em português](README-PTBR.md))
+- [Modelo Matemático](MATHEMATICAL-MODEL.md) (ou [versão em português](MATHEMATICAL-MODEL-PTBR.md))

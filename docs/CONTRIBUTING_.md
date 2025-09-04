@@ -92,5 +92,5 @@ We're excited to build projection models together with you!
 ## Other Pages
 
 - [Project Description](README.md)
-- [Usage and Installation](docs/README.md) (or [portuguese version](docs/README-PTBR.md))
-- [Mathematical Model](docs/MATHEMATICAL-MODEL.md) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.md))
+- [Usage and Installation](README.md) (or [portuguese version](README-PTBR.md))
+- [Mathematical Model](MATHEMATICAL-MODEL.md) (or [portuguese version](MATHEMATICAL-MODEL-PTBR.md))

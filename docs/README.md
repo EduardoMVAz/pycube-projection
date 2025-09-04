@@ -1,7 +1,3 @@
----
-title: Documentation
----
-
 # How to Install
 
 To use the *"Pycube Projection"* project, you must have Python installed
@@ -72,6 +68,6 @@ rotations, as they change the directions the axes point to.*
 
 ## Other Pages
 
-- [Project Description](README.md)
-- [Contribuiting to the Project](docs/CONTRIBUTING_.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))
-- [Mathematical Model](docs/MATHEMATICAL-MODEL.md) (or [portuguese version](docs/MATHEMATICAL-MODEL-PTBR.md))
+- [Project Description](../README.md)
+- [Contribuiting to the Project](CONTRIBUTING_.md) (or [portuguese version](CONTRIBUTING-PTBR.md))
+- [Mathematical Model](MATHEMATICAL-MODEL.md) (or [portuguese version](MATHEMATICAL-MODEL-PTBR.md))

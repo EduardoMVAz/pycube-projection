@@ -1,8 +1,4 @@
----
-title: Modelo Matemático
----
-
-## Modelo Matemático
+# Modelo Matemático
 
 O modelo matemático do `pycube-rotation` é baseado inteiramente em **projeções** utilizando multiplicações matriciais. Como um cubo possui 3 dimensões, precisamos "achatá-lo", ou seja, projetar todas as coordenadas $x$ e $y$ para um $z$ fixo. Dessa maneira, é possível representar o cubo 3-d como um desenho 2-d na tela (utilizando a biblioteca `pygame`).
 
@@ -12,13 +8,13 @@ O processo de transformação pode ser dividido em algumas etapas.
 
 <br/>
 
-### 1. Projeção
+## 1. Projeção
 
 Para os cálculos, podemos, em um primeiro momento, pensar separadamente: primeiro, projetamos as coordeandas $x$ em um $z$ fixo, trabalhando com pares $(x_i, z_i)$, para o z de projeção $z_p = -d$ (distância focal precisa ser multiplicada por $-1$, pois ela é absoluta e o "anteparo" se encontra atrás do pinhole, a origem). Então, podemos pensar no mesmo processo para as coordenadas $y$, com pares $(y_i, z_i)$. 
 
 Esse processo é possível pois, realizando semelhanças entre os triângulos formados nos planos (feito no próximo passo), é possível constatar que as coordeandas de projeção, $x_p$ e $y_p$, não são dependentes entre si, e são apenas influenciadas pela coordenada $z$ original ($z_0$) e a distância focal $d$.
 
-#### 1.1. Semelhança de Triângulos
+### 1.1. Semelhança de Triângulos
 
 Ao formarmos triângulos retângulos conectando os pontos $(x_0, z_0)$ e $(x_p, z_p)$ a origem (usaremos pares $(x, z)$ como exemplo, mas o mesmo se aplica para $(y_0, z_0)$), formamos dois triângulos semelhantes, os quais, portanto, possuem a seguinte proporção entre seus catetos:
 
@@ -70,7 +66,7 @@ w_p
 \end{bmatrix}
 $$
 
-#### 1.2. Unindo $x$ e $y$
+### 1.2. Unindo $x$ e $y$
 
 Agora, realizando o processo para as coordeandas $x_p$ e $y_p$ separadamente, percebemos que o fator chave na transformação é o mesmo: $w_p$. Portanto, podemos juntar as duas transformações e descrevê-las com apenas uma multiplicação matricial que gera todas as coordenadas de projeção com a matriz &P&:
 
@@ -102,7 +98,7 @@ Dessa maneira, a matriz de transformação no código é sempre calculada da mes
 
 <br/>
 
-### 2. Construção do cubo
+## 2. Construção do cubo
 
 Com a capacidade de montar as matrizes de projeção, precisamos imaginar a construção da matriz que representará os vértices do cubo e como ela será transformada antes de realizar o processo.
 
@@ -121,7 +117,7 @@ Com essa matriz em mãos, podemos pré-multiplicá-la pela matriz de projeção 
 
 <br/>
 
-### 3. Rotação
+## 3. Rotação
 
 No entanto, antes de realizarmos a projeção de 3-d para 2-d, precisamos realizar as rotações no nosso sistema tridimensional. Para isso, geramos matrizes específicas para as rotações ao redor de cada eixo separadamente, $R_x$, $R_y$ e $R_z$:
 
@@ -168,7 +164,7 @@ $$
 
 <br/>
 
-### 4. Construção das Coordenadas
+## 4. Construção das Coordenadas
 
 Com a matriz projetada $C_p$ em mãos, precisamos tomar cuidado: ainda não possuimos as coordenadas $(x_p, y_p)$, pois a nossa matriz possui apenas $x_p * w_p$ e $y_p * w_p$, como indicado abaixo:
 
@@ -219,7 +215,7 @@ Por fim, para termos as coordenadas de cada ponto, podemos transpor a matriz, de
 
 <br/>
 
-### 5. Variando a distância focal
+## 5. Variando a distância focal
 
 É importante realizar algumas observações sobre a distância focal e o seu funcionamento no modelo matemático. 
 
@@ -229,6 +225,6 @@ Dessa maneira, ao calcular a matriz de projeção, sempre calculamos $z_p = -d$,
 
 ## Outras Páginas
 
-- [Descrição do Projeto](README.md)
-- [Uso e Instalação](docs/README.md) (ou [versão em português](docs/README-PTBR.md))
-- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))
+- [Descrição do Projeto](../README.md)
+- [Uso e Instalação](README.md) (ou [versão em português](README-PTBR.md))
+- [Contribuições para o Projeto](CONTRIBUTING_.md) (ou [versão em português](CONTRIBUTING-PTBR.md))

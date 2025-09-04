@@ -1,7 +1,3 @@
----
-title: Mathematical Model
----
-
 # Mathematical Model
 
 The mathematical model of `pycube-rotation` is entirely based on **projections** using matrix multiplications. Since a cube has 3 dimensions, we need to "flatten" it, i.e., project all $x$ and $y$ coordinates to a fixed $z$. This way, it is possible to represent the 3D cube as a 2D drawing on the screen (using the `pygame` library).
@@ -229,6 +225,6 @@ Thus, when calculating the projection matrix, we always set $z_p = -d$, which ca
 
 ## Other Pages
 
-- [Project Description](README.md)
-- [Usage and Installation](docs/README.md) (or [portuguese version](docs/README-PTBR.md))
-- [Contribuiting to the Project](docs/CONTRIBUTING_.md) (or [portuguese version](docs/CONTRIBUTING-PTBR.md))
+- [Project Description](../README.md)
+- [Usage and Installation](README.md) (or [portuguese version](README-PTBR.md))
+- [Contribuiting to the Project](CONTRIBUTING_.md) (or [portuguese version](CONTRIBUTING-PTBR.md))

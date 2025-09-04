@@ -1,7 +1,3 @@
----
-title: Documentação
----
-
 # Como Instalar
 
 Para utilizar o projeto <em>"Pycube Projection"</em>, você deve ter o Python instalado em seu computador e seguir os passos:
@@ -55,6 +51,6 @@ A manipulação do cubo pode ser feita a partir de alguns comandos:
 
 ## Outras Páginas
 
-- [Descrição do Projeto](README.md)
-- [Contribuições para o Projeto](docs/CONTRIBUTING_.md) (ou [versão em português](docs/CONTRIBUTING-PTBR.md))
-- [Modelo Matemático](docs/MATHEMATICAL-MODEL.md) (ou [versão em português](docs/MATHEMATICAL-MODEL-PTBR.md))
+- [Descrição do Projeto](../README.md)
+- [Contribuições para o Projeto](CONTRIBUTING_.md) (ou [versão em português](CONTRIBUTING-PTBR.md))
+- [Modelo Matemático](MATHEMATICAL-MODEL.md) (ou [versão em português](MATHEMATICAL-MODEL-PTBR.md))

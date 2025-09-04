@@ -1,7 +1,3 @@
----
-title: Project  Description
----
-
 # Pycube Projection
 ## Linear Algebra project with matrix manipulation and 3D to 2D transformations.
 
